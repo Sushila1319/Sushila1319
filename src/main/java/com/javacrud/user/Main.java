@@ -9,8 +9,8 @@ public class Main {
         try {
             UserDao.createUser("John1", "john1@gmail.com");
             UserDao.readUsers();
-            UserDao.updateUser(22L, "newemail@gmail.com");
-            UserDao.deleteUser(22L);
+            UserDao.updateUser(22, "newemail@gmail.com");
+            UserDao.deleteUser(22);
         } catch (SQLException e) {
             System.out.println("Exception at SQL");
 

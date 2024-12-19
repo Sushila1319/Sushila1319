@@ -24,21 +24,9 @@ public class UserDao {
         }
     }
 
-    public static void readUsers() throws SQLException {
-        String readSql = "select * from users";
-        try (Connection connection = DatabaseConnection.getConnection()) {
-            PreparedStatement statement = connection.prepareStatement(readSql);
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                long id = resultSet.getLong("id");
-                String name = resultSet.getString("name");
-                String email = resultSet.getString("email");
-                System.out.println("id=" + id + "name=" + name + "email=" + email);
-            }
-        }
-    }
+    c
 
-    public static void updateUser(Long id, String newEmail) throws SQLException {
+    public static void updateUser(long id, String newEmail) throws SQLException {
         String updateSql = "update users ser email = ? where id =?";
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(updateSql)) {
@@ -52,7 +40,7 @@ public class UserDao {
             }
         }
     }
-    public static void deleteUser(Long id) throws SQLException {
+    public static void deleteUser(long id) throws SQLException {
         String deleteSql ="Delete from users where id=?";
         try(Connection connection = DatabaseConnection.getConnection();
             PreparedStatement statement = connection.prepareStatement(deleteSql)) {

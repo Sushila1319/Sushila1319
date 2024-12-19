@@ -17,6 +17,7 @@ public class DatabaseConnection {
     }
     public static Connection getConnection() throws SQLException {
         if(connection == null || connection.isClosed()){
+            //using synchronized, it ensures thread safety
             synchronized (DatabaseConnection.class){
                 if(connection==null || connection.isClosed()){
                     connection = DriverManager.getConnection(URL,USER,PASSWORD);
